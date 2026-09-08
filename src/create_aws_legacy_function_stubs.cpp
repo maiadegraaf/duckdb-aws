@@ -1,4 +1,4 @@
-#include "create_aws_function_shims.hpp"
+#include "create_aws_legacy_function_stubs.hpp"
 
 #include "duckdb/common/exception.hpp"
 #include "duckdb/function/function_set.hpp"
@@ -25,7 +25,7 @@ static void LoadAWSCredentialsFunction(ClientContext &, TableFunctionInput &, Da
 
 } // namespace
 
-void CreateAwsFunctionShims::Register(ExtensionLoader &loader) {
+void CreateAwsLegacyFunctionStubs::Register(ExtensionLoader &loader) {
 	TableFunctionSet function_set("load_aws_credentials");
 	auto base_fun = TableFunction("load_aws_credentials", {}, LoadAWSCredentialsFunction, LoadAWSCredentialsBind);
 	auto profile_fun = TableFunction("load_aws_credentials", {LogicalTypeId::VARCHAR}, LoadAWSCredentialsFunction,

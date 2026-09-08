@@ -4,7 +4,7 @@ namespace duckdb {
 
 class ExtensionLoader;
 
-struct CreateAwsFunctionShims {
+struct CreateAwsLegacyFunctionStubs {
 	static void Register(ExtensionLoader &loader);
 };
 

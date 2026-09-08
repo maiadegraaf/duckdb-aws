@@ -25,7 +25,7 @@ set(EXTENSION_SOURCES
     src/aws_extension.cpp
     src/aws_secret.cpp
     src/cloudformation_functions.cpp
-    src/create_aws_function_shims.cpp
+    src/create_aws_legacy_function_stubs.cpp
     src/rds/rds_utils.cpp
     src/rds/rds_storage.cpp
     src/quack_on_ec2_resource.cpp
