@@ -5,8 +5,8 @@
 #include "rds/rds_utils.hpp"
 #include "quack_on_ec2_resource.hpp"
 #include "redshift/redshift_utils.hpp"
+#include "create_aws_legacy_function_stubs.hpp"
 
-#include "duckdb.hpp"
 #include "duckdb/main/extension/extension_loader.hpp"
 #include <duckdb/parser/parsed_data/create_scalar_function_info.hpp>
 #include <aws/core/Aws.h>
@@ -20,6 +20,7 @@ static void LoadInternal(ExtensionLoader &loader) {
 	Aws::InitAPI(options);
 
 	CreateAwsSecretFunctions::InitializeCurlCertificates(loader.GetDatabaseInstance());
+	CreateAwsLegacyFunctionStubs::Register(loader);
 	CreateAwsSecretFunctions::Register(loader);
 
 	// Makes `ATTACH '<cluster-id>' (TYPE redshift, ...)` resolve to the redshift storage extension.
